@@ -1,0 +1,530 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="GUIStartExe">
+        <Position x="186" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ExecutablePath>notepad</ExecutablePath>
+          <WindowTitleRegex>.*Untitled.*</WindowTitleRegex>
+          <SaveProcessId>True</SaveProcessId>
+          <ProcessIdVariableName>NotepadPID</ProcessIdVariableName>
+          <SaveWindowHandle>True</SaveWindowHandle>
+          <WindowHandleVariableName>NotepadHandle</WindowHandleVariableName>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="Python" EngineDllEntryPoint="GUIStartExe\GUIStartExeEngine.py" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="54" width="804" height="60" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Alteryx GUI Automation</Text>
+          <Font name="Segoe UI" size="20.25" style="0" />
+          <TextColor name="White" />
+          <FillColor r="22" g="145" b="198" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="366" y="54" width="492" height="60" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>The GUI Automation tools can automate windows application GUIs</Text>
+          <Font name="Segoe UI" size="9" style="0" />
+          <TextColor name="White" />
+          <FillColor r="111" g="111" b="111" />
+          <Shape shape="3" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="54" y="126" width="396" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>1) Run the workflow (Ctrl+R).</Text>
+          <Font name="Segoe UI" size="8.25" style="1" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="462" y="126" width="396" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>2) Select a tool to view its output in the Results window.</Text>
+          <Font name="Segoe UI" size="8.25" style="1" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="0" />
+          <Justification Justification="1" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="318" y="162" width="540" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Type text into notepad</Text>
+          <Font name="Segoe UI" size="9.75" style="0" />
+          <TextColor name="White" />
+          <FillColor r="22" g="145" b="198" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="438" y="186" width="420" height="144" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>In this example, text is entered into the newly opened Windows Notepad window.
+
+The notepad text area GUI element is not identified by this tool. Instead, the keystrokes are being sent to whatever GUI element is currently active in the window. The text area is active when notepad opens.
+
+"{SPACE}" indicates a space, whereas " " currently does not.
+
+Try changing the keystrokes to "%{F4}"</Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="3" />
+          <Justification Justification="3" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="GUIClick">
+        <Position x="342" y="390" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ProcessIdVariable>NotepadPID</ProcessIdVariable>
+          <WindowHandleVariable>NotepadHandle</WindowHandleVariable>
+          <ClickLocationType>element</ClickLocationType>
+          <PointXVariable>
+          </PointXVariable>
+          <PointYVariable>
+          </PointYVariable>
+          <AutomationId>
+          </AutomationId>
+          <NameRegex>Format</NameRegex>
+          <ControlType>
+          </ControlType>
+          <FoundIndex>
+          </FoundIndex>
+          <XOffset>5</XOffset>
+          <YOffset>5</YOffset>
+          <ClickType>click</ClickType>
+          <ClickButton>left</ClickButton>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="Python" EngineDllEntryPoint="GUIClick\GUIClickEngine.py" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="GUIClick">
+        <Position x="342" y="582" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ProcessIdVariable>NotepadPID</ProcessIdVariable>
+          <WindowHandleVariable>NotepadHandle</WindowHandleVariable>
+          <ClickLocationType>element</ClickLocationType>
+          <PointXVariable>
+          </PointXVariable>
+          <PointYVariable>
+          </PointYVariable>
+          <AutomationId>
+          </AutomationId>
+          <NameRegex>Font...</NameRegex>
+          <ControlType>
+          </ControlType>
+          <FoundIndex>
+          </FoundIndex>
+          <XOffset>5</XOffset>
+          <YOffset>5</YOffset>
+          <ClickType>click</ClickType>
+          <ClickButton>left</ClickButton>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="Python" EngineDllEntryPoint="GUIClick\GUIClickEngine.py" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="438" y="366" width="420" height="144" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>In this example, the Format menu is clicked.
+
+Try changing the Name Regex parameter to select a different option.</Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="3" />
+          <Justification Justification="3" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="318" y="342" width="540" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Click the Format menu</Text>
+          <Font name="Segoe UI" size="9.75" style="0" />
+          <TextColor name="White" />
+          <FillColor r="22" g="145" b="198" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="24">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="318" y="534" width="540" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Click the Font... menu option in the format menu</Text>
+          <Font name="Segoe UI" size="9.75" style="0" />
+          <TextColor name="White" />
+          <FillColor r="22" g="145" b="198" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="438" y="558" width="420" height="156" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>In this example, the Font... option in the Format menu is clicked.
+
+The Font... option cannot be clicked if the Format menu is not exposed.
+
+Try changing the X and Y Offset parameters to see how it affects where the click occurs.</Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="3" />
+          <Justification Justification="3" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="GUIKeyboard">
+        <Position x="342" y="210" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ProcessIdVariable>NotepadPID</ProcessIdVariable>
+          <WindowHandleVariable>NotepadHandle</WindowHandleVariable>
+          <Keystrokes>Automation{SPACE}is{SPACE}automating</Keystrokes>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="Python" EngineDllEntryPoint="GUIKeyboard\GUIKeyboardEngine.py" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="GUIKeyboard">
+        <Position x="342" y="990" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ProcessIdVariable>NotepadPID</ProcessIdVariable>
+          <WindowHandleVariable>FontWindowHandle</WindowHandleVariable>
+          <Keystrokes>Britannic{ENTER}</Keystrokes>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="Python" EngineDllEntryPoint="GUIKeyboard\GUIKeyboardEngine.py" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="GUIGetInfo">
+        <Position x="342" y="774" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <ProcessIdVariable>NotepadPID</ProcessIdVariable>
+          <WindowHandleVariable>NotepadHandle</WindowHandleVariable>
+          <AutomationId>
+          </AutomationId>
+          <NameRegex>Font</NameRegex>
+          <ControlType>Window</ControlType>
+          <FoundIndex>
+          </FoundIndex>
+          <SaveExists>False</SaveExists>
+          <ExistsVariableName>
+          </ExistsVariableName>
+          <SaveIsVisible>False</SaveIsVisible>
+          <IsVisibleVariableName>
+          </IsVisibleVariableName>
+          <SaveCurrentValue>False</SaveCurrentValue>
+          <CurrentValueVariableName>
+          </CurrentValueVariableName>
+          <SaveNumberFound>False</SaveNumberFound>
+          <NumberFoundVariableName>
+          </NumberFoundVariableName>
+          <SaveHandle>True</SaveHandle>
+          <HandleVariableName>FontWindowHandle</HandleVariableName>
+          <SaveUsingCustomPatternCheckbox>False</SaveUsingCustomPatternCheckbox>
+          <ValueUsingCustomPatternVariableName>
+          </ValueUsingCustomPatternVariableName>
+          <ValueUsingCustomPatternPatternName>
+          </ValueUsingCustomPatternPatternName>
+          <ValueUsingCustomPatternProperty>
+          </ValueUsingCustomPatternProperty>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="Python" EngineDllEntryPoint="GUIGetInfo\GUIGetInfoEngine.py" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="438" y="762" width="420" height="156" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>In this example, the handle of the Font window is output and used as the "Window Handle Variable" for the subsequent GUIKeyboard tool.
+
+This can be used to narrow the scope in which your tools are searching for GUI elements, or provide a more specific window to send commands to.
+
+In the next tool (the GUIKeyboard tool), try changing the "Window Handle Variable" from "FontWindowHandle" to "NotepadHandle" and see what happens.</Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="3" />
+          <Justification Justification="3" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="318" y="738" width="540" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Extract the window handle of the font window</Text>
+          <Font name="Segoe UI" size="9.75" style="0" />
+          <TextColor name="White" />
+          <FillColor r="22" g="145" b="198" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="438" y="966" width="420" height="156" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>In this example, text is entered into the font text box, and the enter key is pressed, saving the font.
+
+Try changing this to a different font or a font that doesn't exist.</Text>
+          <Font name="Segoe UI" size="8.25" style="0" />
+          <TextColor name="Black" />
+          <FillColor name="White" />
+          <Shape shape="3" />
+          <Justification Justification="3" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
+        <Position x="318" y="942" width="540" height="24" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Text>Type text into font selection textbox</Text>
+          <Font name="Segoe UI" size="9.75" style="0" />
+          <TextColor name="White" />
+          <FillColor r="22" g="145" b="198" />
+          <Shape shape="0" />
+          <Justification Justification="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="False" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>AlteryxGUIAutomation</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
