@@ -11,11 +11,13 @@ _Note: These tools are not actively supported by Alteryx._
 
 ## Documentation
 
-###General
+*General*
+
 - [Variable-value data stream paradigm](https://alteryx.github.io/ui-automation-samples/Help_Pages/VariableValueDataStreamFormat.html)
 - [Common Tool Options](https://alteryx.github.io/ui-automation-samples/Help_Pages/CommonToolOptions.html)
 
-###Tool-Specific
+*Tool-Specific*
+
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_Note: Tool documentation can also be accessed via Alteryx by clicking the tool's help icon_
 
 - [GUIClick](https://alteryx.github.io/ui-automation-samples/Help_Pages/GUIClickToolHelp.html)
