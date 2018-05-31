@@ -6,7 +6,7 @@ _Note: These tools are not actively supported by Alteryx._
 
 ## Setup
 
-- Alteryx Designer must be installed
+- Alteryx Designer must be installed. Alteryx Designer versions 2018.1 and greater are recommended.
 - Double-click a .yxi file in the YXI_Installers directory to install a tool. Alteryx Designer should handle the install.
 
 ## Documentation
