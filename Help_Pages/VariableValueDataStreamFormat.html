@@ -1,0 +1,404 @@
+<!doctype html>
+<html><head><title>Variable-Value Data Stream Format</title><meta charset="UTF-8"><link href="http://fonts.googleapis.com/css?family=Crimson+Text:400,400italic,700,700italic|Roboto:400,700,700italic,400italic" rel="stylesheet" type="text/css"><style>/*
+ * Copyright 2014 Quip
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may
+ * not use this file except in compliance with the License. You may obtain
+ * a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+ * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+ * License for the specific language governing permissions and limitations
+ * under the License.
+ */
+
+body {
+    font-size: 15px;
+    color: #333;
+    background: #fff;
+    padding: 60px 95px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: "kern";
+    font-kerning: normal;
+    -moz-font-feature-settings: "kern";
+    -webkit-font-feature-settings: "kern";
+}
+
+/* Headings */
+h1, h2, h3, th {
+    font-family: Roboto, sans-serif;
+    font-weight: 700;
+    margin: 0;
+    margin-top: 1.25em;
+    margin-bottom: 0.75em;
+}
+
+h1 {
+    font-size: 35px;
+    line-height: 42px;
+}
+
+h1:first-child {
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 18px;
+    line-height: 22px;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-size: 13px;
+    line-height: 16px;
+}
+
+/* Body text */
+body, p, ul, ol, td {
+    font-family: 'Crimson Text', serif;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+blockquote, q {
+    display: block;
+    margin: 1em 0;
+    font-style: italic;
+}
+
+blockquote a, q a {
+    text-decoration: underline;
+}
+
+blockquote {
+    padding-left: 10px;
+    border-left: 4px solid #a6a6a6;
+}
+
+q {
+    color: #a6a6a6;
+    line-height: 40px;
+    font-size: 24px;
+    text-align: center;
+    quotes: none;
+}
+
+q a {
+    color: #a6a6a6;
+}
+
+code, pre {
+    font-family: Consolas, "Liberation Mono", Menlo, "Courier Prime Web", Courier, monospace;
+    background: #f3f3f3;
+}
+
+code {
+    padding: 1px;
+    margin: 0 -1px;
+    border-radius: 3px;
+}
+
+pre {
+    display: block;
+    line-height: 20px;
+    text-shadow: 0 1px white;
+    padding: 5px 5px 5px 30px;
+    white-space: nowrap;
+    position: relative;
+    margin: 1em 0;
+}
+
+pre:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    border-left: solid 1px #dadada;
+}
+
+/* Lists */
+div[data-section-style="5"],
+div[data-section-style="6"],
+div[data-section-style="7"] {
+    margin: 12px 0;
+}
+
+ul {
+    padding: 0 0 0 40px;
+}
+
+ul li {
+    margin-bottom: 0.4em;
+}
+
+/* Bulleted list */
+div[data-section-style="5"] ul {
+    list-style-type: disc;
+}
+div[data-section-style="5"] ul ul {
+    list-style-type: circle;
+}
+div[data-section-style="5"] ul ul ul {
+    list-style-type: square;
+}
+div[data-section-style="5"] ul ul ul ul {
+    list-style-type: disc;
+}
+div[data-section-style="5"] ul ul ul ul ul {
+    list-style-type: circle;
+}
+div[data-section-style="5"] ul ul ul ul ul ul {
+    list-style-type: square;
+}
+
+/* Numbered list */
+div[data-section-style="6"] ul {
+    list-style-type: decimal;
+}
+div[data-section-style="6"] ul ul {
+    list-style-type: lower-alpha;
+}
+div[data-section-style="6"] ul ul ul {
+    list-style-type: lower-roman;
+}
+div[data-section-style="6"] ul ul ul ul {
+    list-style-type: decimal;
+}
+div[data-section-style="6"] ul ul ul ul ul {
+    list-style-type: lower-alpha;
+}
+div[data-section-style="6"] ul ul ul ul ul ul {
+    list-style-type: lower-roman;
+}
+
+/* Checklist */
+div[data-section-style="7"] ul {
+    list-style-type: none;
+}
+
+div[data-section-style="7"] ul li:before {
+    content: "\2610";
+    position: absolute;
+    display: inline;
+    margin-right: 1.2em;
+    margin-left: -1.2em;
+}
+
+div[data-section-style="7"] ul li.parent:before {
+    content: "";
+}
+
+div[data-section-style="7"] ul li.parent {
+    font-weight: bold;
+}
+
+div[data-section-style="7"] ul li.checked {
+    text-decoration: line-through;
+}
+
+div[data-section-style="7"] ul li.checked:before {
+    content: "\2611";
+    text-decoration: none;
+}
+
+/* Tables */
+div[data-section-style="8"] {
+    margin: 12px 0;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: separate;
+    border: solid 1px #bbb;
+    table-layout: fixed;
+    position: relative;
+}
+
+table th, table td {
+    padding: 2px 2px 0;
+    min-width: 1.5em;
+    word-wrap: break-word;
+}
+
+table th {
+    border-bottom: 1px solid #e1e1e1;
+    background: #f4f4f4;
+    font-weight: bold;
+    vertical-align: bottom;
+    color: #3a4449;
+    text-align: center;
+}
+
+table td {
+    padding-top: 0;
+    border-left: 1px solid #e1e1e1;
+    border-top: 1px solid #e1e1e1;
+    vertical-align: top;
+}
+
+table td.bold {
+    font-weight: bold;
+}
+
+table td.italic {
+    font-style: italic;
+}
+
+table td.underline {
+    text-decoration: underline;
+}
+
+table td.strikethrough {
+    text-decoration: line-through;
+}
+
+table td.underline.strikethrough {
+    text-decoration: underline line-through;
+}
+
+table td:first-child {
+    border-left: hidden;
+}
+
+table tr:first-child td {
+    border-top: hidden;
+}
+
+/* Images */
+div[data-section-style="11"] {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div[data-section-style="11"][data-section-float="0"] {
+    clear: both;
+    text-align: center;
+}
+
+div[data-section-style="11"][data-section-float="1"] {
+    float: left;
+    clear: left;
+    margin-right: 20px;
+}
+
+div[data-section-style="11"][data-section-float="2"] {
+    float: right;
+    clear: right;
+    margin-left: 20px;
+}
+
+div[data-section-style="11"] img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+hr {
+    width: 70px;
+    margin: 20px auto;
+}
+
+/* Apps */
+div[data-section-style="19"].placeholder {
+    margin: 0.8em auto;
+    padding: 4px 0;
+    display: block;
+    color: #29b6f2;
+    text-align: center;
+    border: 1px solid rgba(41, 182, 242, 0.2);
+    border-radius: 3px;
+    background: #e9f8fe;
+    font-family: Roboto, sans-serif;
+}
+
+div[data-section-style="19"].first-party-element {
+    margin-bottom: 10px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+div[data-section-style="19"].first-party-element.kanban {
+    background-image: url("https://d2i1pl9gz4hwa7.cloudfront.net/nK0hSyhsb4jrLIL2s5Ma-g");
+    height: 166px;
+}
+
+div[data-section-style="19"].first-party-element.calendar {
+    background-image: url("https://d2i1pl9gz4hwa7.cloudfront.net/OYujqLny03RILxcLIiyERg");
+    height: 244px;
+}
+
+div[data-section-style="19"].first-party-element.poll {
+    background-image: url("https://d2i1pl9gz4hwa7.cloudfront.net/fbIiFrcKGv__4NB7CBfxoA");
+    height: 116px;
+}
+
+div[data-section-style="19"].first-party-element.countdown {
+    background-image: url("https://d2i1pl9gz4hwa7.cloudfront.net/3bPhykD2dBei9sSjCWteTQ");
+    height: 96px;
+}
+
+div[data-section-style="19"].first-party-element.process_bar {
+    background-image: url("https://d2i1pl9gz4hwa7.cloudfront.net/ybQlHnHEIIBLog5rZmYs_w");
+    height: 36px;
+}
+
+div[data-section-style="19"].first-party-element.project_tracker {
+    background-image: url("https://d2i1pl9gz4hwa7.cloudfront.net/OFQU087b4Mxzz1ZaHwtjXA");
+    height: 164px;
+}
+
+div[data-section-style="19"] img {
+    margin: 0.5em;
+}
+
+div[data-section-style="19"] img.masked-image {
+    margin: 0;
+    transform-origin: top left;
+}
+
+div[data-section-style="19"] .image-mask {
+    position: relative;
+    overflow: hidden;
+}
+</style></head><body><h1 id='IaDACAkHCmW'>Variable-Value Data Stream Format</h1>
+
+<i>Purpose: this document describes how the GUI Automation Tools' data stream format works.</i><br/>
+
+<h2 id='IaDACAOsR9v'>Introduction</h2>
+
+<br/>
+
+Every GUI Automation tool expects a specific input data stream format. There must be at least two columns of the string data type. The first column is a variable name which is used to identify the value in the second column, which is the variable's value. An example is shown below.<br/>
+
+<br/>
+
+If you have ever done any programming, this is the same thing as variable assignment. You're simply saving a variable for use later.<br/>
+
+<div data-section-style='19'><div class='image-mask' style='width:309px; height:122px; border-radius: 0.000px'><img src='./Images/data-stream-variables.png' style='transform: scale3d(1.000, 1.000, 1); -webkit-transform: scale3d(1.000, 1.000, 1); -ms-transform: scale3d(1.000, 1.000, 1); -moz-transform: scale3d(1.000, 1.000, 1)' id='IaDACAgm5aP' alt='' width='309' height='122' class='masked-image'></img></div></div><h2 id='IaDACAkkmnk'>Using Data Stream Variables</h2>
+
+Many tools will ask for one or more "variables." This refers to the "Name" column of the data stream.<br/>
+
+<div data-section-style='19'><div class='image-mask' style='width:380px; height:132px; border-radius: 0.000px'><img src='./Images/input-variables.png' style='transform: scale3d(0.882, 0.882, 1); -webkit-transform: scale3d(0.882, 0.882, 1); -ms-transform: scale3d(0.882, 0.882, 1); -moz-transform: scale3d(0.882, 0.882, 1)' id='IaDACA9HDC2' alt='' width='380' height='132' class='masked-image'></img></div></div>
+
+So, for instance, when you come across a field like either of the two above, those fields are asking for a variable name that exists in the data stream. This variable name will be used to extract the corresponding value to perform the desired action.<br/>
+
+In the example above, the text "AlteryxGuiProcessId" will be translated into the value "5640", which is the process ID of the application that is being automated. Because the Process ID is different every time a test runs, this paradigm allows the automated test author to pass the correct value to the tool no matter what it is.<br/>
+
+<h2 id='IaDACAA1rhw'>Setting Data Stream Variables</h2>
+
+Some tools output variables. It is never required to output a variable, however in some cases there is not much you can do if you do not.<br/>
+
+When variables can be output, you will see controls similar to the ones below. The check boxes allow you to indicate that you wish to save the variable in the data stream. The text box next to each check box is the name you wish to give to the variable. It is highly encouraged that these be 100% unique, however it is possible to save off the same variable more than once. If the same variable name is entered more than once, that variable will show up multiple times in the data stream. Only the <i>last</i> version of a variable in the data stream will be used by downstream tools.<br/>
+
+<div data-section-style='19'><div class='image-mask' style='width:392px; height:195px; border-radius: 0.000px'><img src='./Images/output-variables.png' style='transform: scale3d(1.000, 1.000, 1); -webkit-transform: scale3d(1.000, 1.000, 1); -ms-transform: scale3d(1.000, 1.000, 1); -moz-transform: scale3d(1.000, 1.000, 1)' id='IaDACArFcLO' alt='' width='392' height='195' class='masked-image'></img></div></div>Variable names can contain whatever special characters Python allows in its dictionary keys, including spaces are also allowed. So it is possible to come up with a custom variable naming convention using special characters and spaces, if desired.<br/>
+
+</body></html>
