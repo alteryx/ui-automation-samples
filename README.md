@@ -4,6 +4,9 @@ A set of [Alteryx](https://www.alteryx.com/) Designer tools written using the Py
 
 _Note: These tools are not actively supported by Alteryx._
 
+## Requirements
+[Aleryx Designer 2018.1+](https://www.alteryx.com/products/alteryx-platform/alteryx-designer)
+
 ## Setup
 
 - Alteryx Designer must be installed. Versions 2018.1 and greater are recommended.
